@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} {{object.name}} {% endblock %}
+
+{% block content %}
+<h1>{{object.name}}</h1>
+<span>Placeholder</span>
+<p>{{object.descripcion}}</p>
+
+{% if object.image %} 
+    <img src="{{ object.image.url }}" alt="{{ object.nombre }}" width="100"> 
+{% endif %}
+<p><strong>Precio: </strong> PEN {{object.price}}</p>
+<a class="btn btn-info" href="/productos/">Volver a lista</a>
+{% endblock %}

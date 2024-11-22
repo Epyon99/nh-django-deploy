@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} {{object.name}} {% endblock %}
+
+{% block content %}
+<h1>{{object.name}}</h1>
+<h2>Productos asociados</h2>
+<ul>
+    {% for p in object.productos.all %}
+        <li>{{p.name}}-{{p.price}}</li>
+    {% empty %}
+        <li>No hay productos</li>
+    {% endfor %}
+</ul>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Crear Producto</button>
+</form>
+<a class="btn btn-info" href="/producto/proveedores">Volver a lista</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+Listas de productos
+{% endblock %}
+
+{% block content %}
+<h2>Lista de productos</h2>
+<table>
+    <thead>
+        <tr>
+            <th>nombre</th>
+            <th>descripcion</th>
+            <th>precio</th>
+            <th>imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in object_list %}
+            <tr>
+                <td><a href="{% url 'product_detailview' producto.id %}">{{producto.name}}</a></td>
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.price}}</td>
+                <td>
+                    <span>Placeholder</span>                                
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

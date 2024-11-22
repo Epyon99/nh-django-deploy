@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Almacen</title>
+</head>
+<body>
+    <h1>Editar Almacen: {{ almacen.nombre }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    {% if form.errors %}
+    <ul>
+        {% for field, errors in form.errors.items %}
+            <li>{{field}}:
+                <ul>
+                    {% for error in errors %}
+                        <li>{{error}}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
